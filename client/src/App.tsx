@@ -48,8 +48,6 @@ function App() {
           `https://api.openweathermap.org/data/2.5/weather?q=${cty},${cntry}&appid=${process.env.REACT_APP_API_KEY}`
         )
         .then((res) => {
-          console.log(res.data);
-
           const data = res.data;
           const name = data.name;
           const Country = data.sys.country;
