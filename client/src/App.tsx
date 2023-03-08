@@ -12,7 +12,7 @@ import {
   Report,
   Temp,
   Time,
-  Wrapper
+  Wrapper,
 } from "./App.style";
 
 function App() {
@@ -41,16 +41,6 @@ function App() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    // (() => {
-    //   navigator.geolocation.getCurrentPosition((pos) => {
-    //     const lt = pos.coords.latitude;
-    //     const ln = pos.coords.latitude;
-    //     console.log(lt, ln);
-    //     setLat(lt);
-    //     setLon(ln);
-    //   });
-    // })();
-
     navigator.geolocation.getCurrentPosition(async (pos) => {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
@@ -59,7 +49,6 @@ function App() {
           `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`
         )
         .then((res) => {
-          console.log(res.data);
           const data = res.data;
           const name = data.name;
           const Country = data.sys.country;
