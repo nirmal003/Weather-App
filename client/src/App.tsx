@@ -14,7 +14,6 @@ import {
   Time,
   Wrapper,
 } from "./App.style";
-// import styled from "styled-components";
 
 function App() {
   type WeatherData = {
@@ -149,8 +148,6 @@ function App() {
     setCity("");
     setCountry("");
   };
-
-  console.log(weatherData);
 
   return (
     <Wrapper>
