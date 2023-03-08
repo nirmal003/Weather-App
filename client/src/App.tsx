@@ -12,7 +12,7 @@ import {
   Report,
   Temp,
   Time,
-  Wrapper,
+  Wrapper
 } from "./App.style";
 
 function App() {
@@ -35,25 +35,31 @@ function App() {
     time: number;
   };
 
-  const [lat, setLat] = useState(Number);
-  const [lon, setLon] = useState(Number);
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((pos) => {
-      setLat(pos.coords.latitude);
-      setLon(pos.coords.longitude);
-    });
+    // (() => {
+    //   navigator.geolocation.getCurrentPosition((pos) => {
+    //     const lt = pos.coords.latitude;
+    //     const ln = pos.coords.latitude;
+    //     console.log(lt, ln);
+    //     setLat(lt);
+    //     setLon(ln);
+    //   });
+    // })();
 
-    (async () => {
+    navigator.geolocation.getCurrentPosition(async (pos) => {
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
       await axios
         .get(
           `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`
         )
         .then((res) => {
+          console.log(res.data);
           const data = res.data;
           const name = data.name;
           const Country = data.sys.country;
@@ -95,7 +101,7 @@ function App() {
         .catch((err) => {
           console.log("user must be give a loction allow");
         });
-    })();
+    });
   }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
