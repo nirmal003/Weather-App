@@ -34,18 +34,24 @@ function App() {
     icon: string;
     time: number;
   };
+
+  const [lat, setLat] = useState(Number);
+  const [lon, setLon] = useState(Number);
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const cty = "bengaluru";
-    const cntry = "india";
+    navigator.geolocation.getCurrentPosition((pos) => {
+      setLat(pos.coords.latitude);
+      setLon(pos.coords.longitude);
+    });
+
     (async () => {
       await axios
         .get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${cty},${cntry}&appid=${process.env.REACT_APP_API_KEY}`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`
         )
         .then((res) => {
           const data = res.data;
@@ -84,11 +90,10 @@ function App() {
             icon,
             time,
           };
-
           setWeatherData(weatherData);
         })
         .catch((err) => {
-          console.log("hello err");
+          console.log("user must be give a loction allow");
         });
     })();
   }, []);
