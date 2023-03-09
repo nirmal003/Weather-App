@@ -50,40 +50,24 @@ function App() {
         )
         .then((res) => {
           const data = res.data;
-          const name = data.name;
-          const Country = data.sys.country;
-          const sunrise = data.sys.sunrise;
-          const sunset = data.sys.sunset;
-          const temp = data.main.temp;
-          const temp_min = data.main.temp_min;
-          const temp_max = data.main.temp_max;
-          const humidity = data.main.humidity;
-          const pressure = data.main.pressure;
-          const visibility = data.visibility;
-          const speed = data.wind.speed;
-          const deg = data.wind.deg;
-          const description = data.weather[0].description;
-          const main = data.weather[0].main;
-          const icon = data.weather[0].icon;
-          const time = data.dt;
 
           const weatherData: WeatherData = {
-            name,
-            Country,
-            temp,
-            temp_min,
-            temp_max,
-            humidity,
-            pressure,
-            visibility,
-            sunrise,
-            sunset,
-            speed,
-            deg,
-            description,
-            main,
-            icon,
-            time,
+            name: data.name,
+            Country: data.sys.country,
+            temp: data.main.temp,
+            temp_min: data.main.temp_min,
+            temp_max: data.main.temp_max,
+            humidity: data.main.humidity,
+            pressure: data.main.pressure,
+            visibility: data.visibility,
+            sunrise: data.sys.sunrise,
+            sunset: data.sys.sunset,
+            speed: data.wind.speed,
+            deg: data.wind.deg,
+            description: data.weather[0].description,
+            main: data.weather[0].main,
+            icon: data.weather[0].icon,
+            time: data.dt,
           };
           setWeatherData(weatherData);
         })
@@ -102,40 +86,24 @@ function App() {
       );
 
       const data = res.data;
-      const name = data.name;
-      const Country = data.sys.country;
-      const sunrise = data.sys.sunrise;
-      const sunset = data.sys.sunset;
-      const temp = data.main.temp;
-      const temp_min = data.main.temp_min;
-      const temp_max = data.main.temp_max;
-      const humidity = data.main.humidity;
-      const pressure = data.main.pressure;
-      const visibility = data.visibility;
-      const speed = data.wind.speed;
-      const deg = data.wind.deg;
-      const description = data.weather[0].description;
-      const main = data.weather[0].main;
-      const icon = data.weather[0].icon;
-      const time = data.dt;
 
       const weatherData: WeatherData = {
-        name,
-        Country,
-        temp,
-        temp_min,
-        temp_max,
-        humidity,
-        pressure,
-        visibility,
-        sunrise,
-        sunset,
-        speed,
-        deg,
-        description,
-        main,
-        icon,
-        time,
+        name: data.name,
+        Country: data.sys.country,
+        temp: data.main.temp,
+        temp_min: data.main.temp_min,
+        temp_max: data.main.temp_max,
+        humidity: data.main.humidity,
+        pressure: data.main.pressure,
+        visibility: data.visibility,
+        sunrise: data.sys.sunrise,
+        sunset: data.sys.sunset,
+        speed: data.wind.speed,
+        deg: data.wind.deg,
+        description: data.weather[0].description,
+        main: data.weather[0].main,
+        icon: data.weather[0].icon,
+        time: data.dt,
       };
 
       setWeatherData(weatherData);
