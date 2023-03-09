@@ -16,10 +16,15 @@ export const Header = styled.div`
 `;
 
 export const From = styled.form`
-display: flex;
-justify-content: space-evenly;
-padding: 30px 0 25px;
-}
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px 0 25px;
+
+  @media (max-width: 420px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const Input = styled.input`
@@ -32,6 +37,10 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
+
+  @media (max-width: 420px) {
+    margin: 10px 0;
+  }
 `;
 
 export const Button = styled.button`
@@ -40,6 +49,10 @@ export const Button = styled.button`
   border-radius: 20px;
   width: 70px;
   font-size: 1rem;
+
+  @media (max-width: 420px) {
+    margin: 10px 0;
+  }
 `;
 
 export const Report = styled.div`
@@ -79,6 +92,11 @@ export const Data = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 50px;
   padding: 5px 10px 5px 5px;
+
+  @media (max-width: 420px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Grid = styled.div`

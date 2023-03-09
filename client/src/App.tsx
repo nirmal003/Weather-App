@@ -193,11 +193,13 @@ function App() {
             {weatherData && `${(weatherData?.temp - 273.15).toFixed(0)}°`}
           </Degree>
           <Icon>
-            <img
-              style={{ width: 38 }}
-              src={`http://openweathermap.org/img/wn/${weatherData?.icon}@2x.png`}
-              alt={`${weatherData?.main}`}
-            />
+            {weatherData && (
+              <img
+                style={{ width: 38 }}
+                src={`http://openweathermap.org/img/wn/${weatherData?.icon}@2x.png`}
+                alt={`${weatherData?.main}`}
+              />
+            )}
             <span style={{ fontSize: 14 }}>{weatherData?.main}</span>
           </Icon>
         </Temp>
