@@ -82,7 +82,9 @@ function App() {
 
     try {
       const res = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.REACT_APP_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city.trimEnd()},${country.trimEnd()}&appid=${
+          process.env.REACT_APP_API_KEY
+        }`
       );
 
       const data = res.data;
@@ -125,14 +127,14 @@ function App() {
           placeholder="City"
           value={city}
           required
-          onChange={(e) => setCity(e.target.value.trimEnd())}
+          onChange={(e) => setCity(e.target.value)}
         />
         <Input
           type="text"
           placeholder="Country"
           value={country}
           required
-          onChange={(e) => setCountry(e.target.value.trimEnd())}
+          onChange={(e) => setCountry(e.target.value)}
         />
         <Button type="submit">Submit</Button>
       </From>
