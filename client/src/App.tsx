@@ -124,13 +124,15 @@ function App() {
           type="text"
           placeholder="City"
           value={city}
-          onChange={(e) => setCity(e.target.value.trim())}
+          required
+          onChange={(e) => setCity(e.target.value.trimEnd())}
         />
         <Input
           type="text"
           placeholder="Country"
           value={country}
-          onChange={(e) => setCountry(e.target.value.trim())}
+          required
+          onChange={(e) => setCountry(e.target.value.trimEnd())}
         />
         <Button type="submit">Submit</Button>
       </From>
